@@ -1,5 +1,5 @@
 # PalindromeCheckerApp
-This part Use stack to reverse characters and validate palindrome and tell whether it is a palindrome or not
+This part Demonstrate FIFO vs LIFO using Queue and Stack and tell whether it is a palindrome or not
 ex: radar 
 Palindrome
 ex : art
