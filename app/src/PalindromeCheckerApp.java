@@ -1,37 +1,31 @@
 import java.util.Scanner;
-import java.util.Stack;
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter a string: ");
-        String original = sc.nextLine();
+        String input = sc.nextLine();
 
-        Stack<Character> stack = new Stack<>();
-        Queue<Character> queue = new LinkedList<>();
+        Deque<Character> deque = new ArrayDeque<>();
 
-        for (int i = 0; i < original.length(); i++) {
-            char ch = original.charAt(i);
-            stack.push(ch);
-            queue.add(ch);
+        for (int i = 0; i < input.length(); i++) {
+            deque.addLast(input.charAt(i));
         }
-
 
         boolean isPalindrome = true;
 
-        while (!stack.isEmpty() && !queue.isEmpty()) {
-            char fromStack = stack.pop();
-            char fromQueue = queue.remove();
+        while (deque.size() > 1) {
+            char front = deque.removeFirst();
+            char rear = deque.removeLast();
 
-            if (fromStack != fromQueue) {
+            if (front != rear) {
                 isPalindrome = false;
                 break;
             }
         }
-
         if (isPalindrome) {
             System.out.println("Palindrome");
         } else {
